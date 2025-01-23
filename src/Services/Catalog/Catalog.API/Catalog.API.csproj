@@ -17,10 +17,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Products\GetProductById\" />
     <Folder Include="Products\DeleteProduct\" />
     <Folder Include="Products\GetProductByCategory\" />
-    <Folder Include="Products\GetProducts\" />
     <Folder Include="Products\UpdateProduct\" />
   </ItemGroup>
 
