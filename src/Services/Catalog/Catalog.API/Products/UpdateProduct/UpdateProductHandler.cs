@@ -25,6 +25,7 @@ namespace Catalog.API.Products.UpdateProduct
              product.ImageFile = command.ImageFile;
                     
             session.Update(product);
+            await session.SaveChangesAsync(cancellationToken);
 
             return new UpdateProductResult(true);
         }
