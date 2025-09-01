@@ -12,9 +12,9 @@ namespace Catalog.API.Products.UpdateProduct
         {
             var command = request.Adapt<UpdateProductCommand>();
             var result = await sender.Send(command);
-            var resposne = result.Adapt<UpdateProductResponse>();
+            var response = result.Adapt<UpdateProductResponse>();
 
-            return Results.Ok(resposne);
+            return Results.Ok(response);
         })
         .WithName("Update Product")
         .Produces<UpdateProductResponse>(StatusCodes.Status200OK)
