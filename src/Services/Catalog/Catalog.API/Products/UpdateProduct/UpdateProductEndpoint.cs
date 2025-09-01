@@ -14,7 +14,7 @@ namespace Catalog.API.Products.UpdateProduct
                 var result = await sender.Send(command);
                 var response = result.Adapt<UpdateProductResponse>();
 
-                return Results.Ok();
+                return Results.Ok(response);
             })
             .WithName("UpdateProduct")
             .Produces<UpdateProductResponse>(StatusCodes.Status200OK)
