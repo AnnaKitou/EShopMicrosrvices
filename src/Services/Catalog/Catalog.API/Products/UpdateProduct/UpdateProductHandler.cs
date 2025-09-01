@@ -19,8 +19,8 @@ namespace Catalog.API.Products.UpdateProduct
         }
 
         product.Name = command.Name;
-             product.Description = command.Description;
-             product.Price = command.Price;
+        product.Description = command.Description;
+        product.Price = command.Price;
         product.Category = command.Category;
         product.Description = command.Description;
         product.ImageFile = command.ImageFile;
