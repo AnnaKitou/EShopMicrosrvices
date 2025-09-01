@@ -10,9 +10,9 @@
             {
                 var command = request.Adapt<CreateProductCommand>();
                 var result = await sender.Send(command);
-                var resposne = result.Adapt<CreateProductResponse>();
+                var response = result.Adapt<CreateProductResponse>();
 
-                return Results.Created($"/product/{resposne.Id}", resposne);
+                return Results.Created($"/product/{response.Id}", response);
             })
             .WithName("CreateProduct")
             .Produces<CreateProductResponse>(StatusCodes.Status201Created)
