@@ -46,6 +46,13 @@ app.UseExceptionHandler(exceptionHandlerApp =>
             Detail = exception.StackTrace
         };
 
+        var logger = context.RequestServices.GetRequiredService<ILogger<Program>>();
+        logger.LogError(exception, exception.Message);
+
+        context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+        context.Response.ContentType = "application/problem+json";
+
+        await context.Response.WriteAsJsonAsync(problemDetails);
     });
 });
 
