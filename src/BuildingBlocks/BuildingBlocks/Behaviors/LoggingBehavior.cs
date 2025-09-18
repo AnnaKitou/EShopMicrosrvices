@@ -19,8 +19,12 @@ namespace BuildingBlocks.Behaviors
 
             timer.Stop();
             var timeTaken = timer.Elapsed;
-            if (timeTaken.Seconds > 3) //if the request is greater than 3 seconds,
-                logger.LogWarning("[PERFORMANCE] The request {Request} took {TimeTaken}", typeof(TRequest), timeTaken.Seconds);
+            if (timeTaken.Seconds > 3) //if the request is greater than 3 seconds
+                logger.LogWarning("[PERFORMANCE] The request {Request} took {TimeTaken}", typeof(TRequest).Name, timeTaken.Seconds);
+
+            logger.LogInformation("[END] Handled {Request} with {Response}", typeof(TRequest).Name, typeof(TResponse).Name);
+
+            return response;
         }
     }
 }
