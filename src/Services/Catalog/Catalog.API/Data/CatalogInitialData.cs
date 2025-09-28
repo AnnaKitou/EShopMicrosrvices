@@ -1,6 +1,4 @@
-﻿using Marten.Schema;
-using Microsoft.AspNetCore.Mvc.Formatters;
-
+﻿
 namespace Catalog.API.Data
 {
     public class CatalogInitialData : IInitialData
