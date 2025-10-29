@@ -4,3 +4,6 @@ global using Carter;
 global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
 global using Carter;
 global using MediatR;
+global using Mapster;
+
+
