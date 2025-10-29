@@ -1,6 +1,6 @@
 ﻿namespace Basket.API.Basket.GetBasket
 {
-	public record GetBasketRequest(string userName);
+	//public record GetBasketRequest(string userName);
 	public record GetBasketResponse(ShoppingCart Cart);
 	public class GetBasketEndpoints : ICarterModule
 	{

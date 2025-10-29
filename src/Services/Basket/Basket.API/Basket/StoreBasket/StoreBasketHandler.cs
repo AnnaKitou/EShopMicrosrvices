@@ -1,10 +1,8 @@
 ﻿
-using FluentValidation;
-
 namespace Basket.API.Basket.StoreBasket
 {
 	public record StoreBasketCommand(ShoppingCart Cart) : ICommand<StoreBasketResult>;
-	public record StoreBasketResult(bool Success);
+	public record StoreBasketResult(string UserName);
 	public class StoreBasketCommandValidator : AbstractValidator<StoreBasketCommand>
 	{
 		public StoreBasketCommandValidator()
@@ -19,10 +17,8 @@ namespace Basket.API.Basket.StoreBasket
 		public async Task<StoreBasketResult> Handle(StoreBasketCommand command, CancellationToken cancellationToken)
 		{
 			ShoppingCart cart = command.Cart;
-			if (cart == null)
-				return await Task.FromResult(new StoreBasketResult(false));
 
-			return await Task.FromResult(new StoreBasketResult(true));
+			return new StoreBasketResult("swn");
 		}
 	}
 }

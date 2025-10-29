@@ -6,7 +6,7 @@
 	{
 		public async Task<GetBasketResult> Handle(GetBasketQuery request, CancellationToken cancellationToken)
 		{
-			throw new NotImplementedException();
+			return new GetBasketResult(new ShoppingCart("swn"));
 		}
 	}
 }
