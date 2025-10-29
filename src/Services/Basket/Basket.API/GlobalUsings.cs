@@ -2,8 +2,11 @@
 global using BuildingBlocks.CQRS;
 global using Carter;
 global using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-global using Carter;
+global using Marten;
 global using MediatR;
 global using Mapster;
+global using BuildingBlocks.Behaviors;
+global using BuildingBlocks.Exceptions.Handler;
+global using FluentValidation;
 
 

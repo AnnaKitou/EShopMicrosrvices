@@ -13,7 +13,6 @@
 
 		public ShoppingCart()
 		{
-
 		}
 	}
 }
