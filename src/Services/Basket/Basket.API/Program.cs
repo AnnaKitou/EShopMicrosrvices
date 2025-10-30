@@ -16,6 +16,7 @@ builder.Services.AddCarter();
 builder.Services.AddMarten(opts =>
 {
 	opts.Connection(builder.Configuration.GetConnectionString("Database")!);
+	opts.Schema.For<ShoppingCart>().Identity(y => y.UserName);
 }).UseLightweightSessions();
 
 //if (builder.Environment.IsDevelopment())
