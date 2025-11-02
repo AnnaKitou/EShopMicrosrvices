@@ -4,9 +4,9 @@ var assembly = typeof(Program).Assembly;
 
 builder.Services.AddMediatR(config =>
 {
-	config.RegisterServicesFromAssembly(assembly);
-	config.AddOpenBehavior(typeof(ValidationBehavior<,>));
-	config.AddOpenBehavior(typeof(LoggingBehavior<,>));
+    config.RegisterServicesFromAssembly(assembly);
+    config.AddOpenBehavior(typeof(ValidationBehavior<,>));
+    config.AddOpenBehavior(typeof(LoggingBehavior<,>));
 });
 
 builder.Services.AddValidatorsFromAssembly(assembly);
@@ -15,10 +15,11 @@ builder.Services.AddCarter();
 
 builder.Services.AddMarten(opts =>
 {
-	opts.Connection(builder.Configuration.GetConnectionString("Database")!);
-	opts.Schema.For<ShoppingCart>().Identity(y => y.UserName);
+    opts.Connection(builder.Configuration.GetConnectionString("Database")!);
+    opts.Schema.For<ShoppingCart>().Identity(y => y.UserName);
 }).UseLightweightSessions();
 
+builder.Services.AddScoped<IBasketRepository, BasketRepository>();
 //if (builder.Environment.IsDevelopment())
 //	builder.Services.InitializeMartenWith<CatalogInitialData>();
 
