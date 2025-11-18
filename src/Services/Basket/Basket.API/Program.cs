@@ -1,5 +1,3 @@
-using Microsoft.Extensions.Caching.Distributed;
-
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 var assembly = typeof(Program).Assembly;
@@ -32,9 +30,11 @@ builder.Services.AddStackExchangeRedisCache(options =>
 //if (builder.Environment.IsDevelopment())
 //	builder.Services.InitializeMartenWith<CatalogInitialData>();
 
-builder.Services.AddExceptionHandler<CustomExceptionHandler>();
+//builder.Services.AddExceptionHandler<CustomExceptionHandler>();
 
-//builder.Services.AddHealthChecks().AddNpgSql(builder.Configuration.GetConnectionString("Database")!);
+builder.Services.AddHealthChecks()
+    .AddNpgSql(builder.Configuration.GetConnectionString("Database")!)
+    .AddRedis(builder.Configuration.GetConnectionString("Redis")!);
 
 
 var app = builder.Build();
@@ -45,11 +45,11 @@ app.MapCarter();
 
 app.UseExceptionHandler(options => { });
 
-//app.UseHealthChecks("/health",
-//	new HealthCheckOptions
-//	{
-//		ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
-//	});
+app.UseHealthChecks("/health",
+    new HealthCheckOptions
+    {
+        ResponseWriter = UIResponseWriter.WriteHealthCheckUIResponse
+    });
 
 app.Run();
 
