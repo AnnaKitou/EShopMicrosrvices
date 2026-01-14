@@ -1,18 +1,41 @@
-﻿using Grpc.Core;
+﻿using Discount.Grpc.Data;
+using Discount.Grpc.Models;
+using Grpc.Core;
+using Microsoft.EntityFrameworkCore;
+using Mapster;
+using System.Security.Cryptography.Xml;
 
 namespace Discount.Grpc.Services
 {
-    public class DiscountService : DiscountProtoService.DiscountProtoServiceBase
+    public class DiscountService(DiscountContext dbContext, ILogger<DiscountService> logger) : DiscountProtoService.DiscountProtoServiceBase
     {
-        public override Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
+        public override async Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
         {
-            // TODO: GetDiscount from database 
-            return base.GetDiscount(request, context);
+            var coupon = await dbContext.Coupons
+                  .FirstOrDefaultAsync(c => c.ProductName == request.ProductName);
+
+            if (coupon == null)
+                coupon = new Coupon { ProductName = "No Discount", Amount = 0, Description = "No Discount Descr" };
+
+            logger.LogInformation("Discount is retrieved for ProductName : {ProductName}, Amount : {Amount}", coupon.ProductName, coupon.Amount);
+
+            var couponModel = coupon.Adapt<CouponModel>();
+            return couponModel;
         }
 
-        public override Task<CouponModel> CreateDiscount(CreateDiscountRequest request, ServerCallContext context)
+        public override async Task<CouponModel> CreateDiscount(CreateDiscountRequest request, ServerCallContext context)
         {
-            return base.CreateDiscount(request, context);
+            var coupon = request.Coupon.Adapt<Coupon>();
+            if (coupon == null)
+                throw new RpcException(new Status(StatusCode.InvalidArgument, "Invlaid request"));
+
+            dbContext.Coupons.Add(coupon);
+            await dbContext.SaveChangesAsync();
+
+            logger.LogInformation("Discount is succesfully created : {ProductName}", coupon.ProductName);
+
+            var couponModel = coupon.Adapt<CouponModel>();
+            return couponModel;
         }
 
         public override Task<CouponModel> UpdateDiscount(UpdateDiscountRequest request, ServerCallContext context)
