@@ -16,7 +16,9 @@ namespace Basket.API.Basket.StoreBasket
     {
         public async Task<StoreBasketResult> Handle(StoreBasketCommand command, CancellationToken cancellationToken)
         {
-            ShoppingCart cart = command.Cart;
+			//TODO : communicate with Dicount.Grpc and calculate lastet prices for products in the basket
+			//TODO: strore basket in database (use Marten upsert - if exist = updates, if not exist = insert)
+			ShoppingCart cart = command.Cart;
 
             await basketRepository.StoreBasket(cart, cancellationToken);
 
