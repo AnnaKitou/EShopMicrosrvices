@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{54E2E48F-59A4-4722-82C5-040174A42331}"
 EndProject
@@ -22,6 +22,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discount", "Discount", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Discount.Grpc", "Services\Discount\Discount.Grpc\Discount.Grpc.csproj", "{AA2282C8-BD08-4B2D-89A9-48558E008E8D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Ordering", "Ordering", "{1C46E0E2-926A-4808-920A-9DB13CFF7A52}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ordering.API", "Services\Ordering\Ordering.API\Ordering.API.csproj", "{D25285EF-8E3C-4A96-8FF3-BB7FD6C7B21F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -49,6 +53,10 @@ Global
 		{AA2282C8-BD08-4B2D-89A9-48558E008E8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AA2282C8-BD08-4B2D-89A9-48558E008E8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AA2282C8-BD08-4B2D-89A9-48558E008E8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D25285EF-8E3C-4A96-8FF3-BB7FD6C7B21F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D25285EF-8E3C-4A96-8FF3-BB7FD6C7B21F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D25285EF-8E3C-4A96-8FF3-BB7FD6C7B21F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D25285EF-8E3C-4A96-8FF3-BB7FD6C7B21F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -61,6 +69,8 @@ Global
 		{FF1F9D4A-7C0F-46AD-A504-0447E524041B} = {9C21F81B-4146-42A7-90DA-0FDB922F4261}
 		{02EA681E-C7D8-13C7-8484-4AC65E1B71E8} = {54E2E48F-59A4-4722-82C5-040174A42331}
 		{AA2282C8-BD08-4B2D-89A9-48558E008E8D} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{1C46E0E2-926A-4808-920A-9DB13CFF7A52} = {54E2E48F-59A4-4722-82C5-040174A42331}
+		{D25285EF-8E3C-4A96-8FF3-BB7FD6C7B21F} = {1C46E0E2-926A-4808-920A-9DB13CFF7A52}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5DD7080C-B4BA-4E53-A609-7D37BA815172}
