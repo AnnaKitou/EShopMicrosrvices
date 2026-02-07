@@ -4,7 +4,7 @@
 	{
 		public Guid Value { get; }
 
-		public CustomerId(Guid value) => Value = value;
+		private CustomerId(Guid value) => Value = value;
 
 		public static CustomerId Of (Guid value)
 		{

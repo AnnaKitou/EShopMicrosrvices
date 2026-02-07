@@ -9,7 +9,7 @@
 
 		public OrderItem(OrderId orderId, ProductId productId, decimal price, int quantity)
 		{
-			Id = OrderItem.Of(Guid.NewGuid());
+			Id = OrderItemId.Of(Guid.NewGuid());
 			OrderId = orderId;
 			ProductId = productId;
 			Price = price;
