@@ -4,7 +4,11 @@
       "Bash(cd:*)",
       "Bash(dir:*)",
       "Bash(git add:*)",
-      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd CLAUDE.md project guide and update Claude permissions\n\nAdds a comprehensive CLAUDE.md documenting the microservices architecture,\nDDD/CQRS patterns, tech stack, domain model, and common dev commands.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\")"
+      "Bash(git commit -m \"$\\(cat <<''EOF''\nAdd CLAUDE.md project guide and update Claude permissions\n\nAdds a comprehensive CLAUDE.md documenting the microservices architecture,\nDDD/CQRS patterns, tech stack, domain model, and common dev commands.\n\nCo-Authored-By: Claude Sonnet 4.6 <noreply@anthropic.com>\nEOF\n\\)\")",
+      "Bash(git push:*)",
+      "Bash(echo:*)",
+      "Bash(GIT_TERMINAL_PROMPT=0 git push:*)",
+      "Bash(git commit:*)"
     ]
   }
 }
