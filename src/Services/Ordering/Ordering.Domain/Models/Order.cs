@@ -46,7 +46,7 @@
 			AddDomainEvent(new OrderUpdatedEvent(this));
 		}
 
-		public void Add(ProductId productId, decimal price, int quantity)
+		public void Add(ValueObjects.OrderItem productId, decimal price, int quantity)
 		{
 			ArgumentOutOfRangeException.ThrowIfNegativeOrZero(price);
 			ArgumentOutOfRangeException.ThrowIfNegativeOrZero(quantity);
@@ -54,7 +54,7 @@
 			var orderItem = new OrderItem(Id, productId, price, quantity);
 			_orderItems.Add(orderItem);
 		}
-		public void Remove(ProductId productId) {
+		public void Remove(ValueObjects.OrderItem productId) {
 			var orderItem = _orderItems.FirstOrDefault(item => item.ProductId == productId);
 			if (orderItem is not null)
 			{
