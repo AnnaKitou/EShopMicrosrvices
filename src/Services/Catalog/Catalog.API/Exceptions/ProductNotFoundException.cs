@@ -6,6 +6,7 @@ namespace Catalog.API.Exceptions
     {
         public ProductNotFoundException(Guid Id) : base("Product", Id)
         {
+            
         }
     }
 }
