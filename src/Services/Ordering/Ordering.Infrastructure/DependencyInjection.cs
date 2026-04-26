@@ -1,8 +1,4 @@
-﻿using MediatR.Registration;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace Ordering.Infrastructure
+﻿namespace Ordering.Infrastructure
 {
     public static class DependencyInjection
     {
@@ -11,8 +7,8 @@ namespace Ordering.Infrastructure
             var connectionString = configuration.GetConnectionString("Database");
 
             // Add services to the container
-            //services.AddDbContext<ApplicationDbContext>(OptionsBuilderConfigurationExtensions => 
-            //options.UseSqlServer(connectionString));
+            services.AddDbContext<ApplicationDbContext>(OptionsBuilderConfigurationExtensions =>
+            Options.UseSqlServer(connectionString));
 
             //services.AddScoped<IApplicationDbContext, ApplicationDbContext>();
             return services;
