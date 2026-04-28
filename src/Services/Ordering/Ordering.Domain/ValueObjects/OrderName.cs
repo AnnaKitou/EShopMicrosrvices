@@ -6,7 +6,7 @@
 
         private const int DefaultLength = 5;
 
-        private OrderName(string Value) => Value = Value;
+        private OrderName(string value) => Value = value;
         public static OrderName Of(string value)
         {
             ArgumentException.ThrowIfNullOrWhiteSpace(value);
