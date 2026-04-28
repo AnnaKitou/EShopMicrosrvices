@@ -8,7 +8,7 @@
             builder.Property(p => p.Id)
                 .HasConversion(
                     id => id.Value,
-                    dbId => Domain.ValueObjects.OrderItem.Of(dbId));
+                    dbId => ProductId.Of(dbId));
 
                builder.Property(p => p.Name).HasMaxLength(100).IsRequired();
         }
