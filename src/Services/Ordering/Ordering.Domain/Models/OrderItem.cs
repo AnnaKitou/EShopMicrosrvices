@@ -7,7 +7,7 @@
 		public decimal Price { get; private set; } = default!;
 		public int Quantity { get; private set; } = default!;
 
-		internal OrderItem(OrderId orderId, ValueObjects.OrderItem productId, decimal price, int quantity)
+        internal OrderItem(OrderId orderId, ValueObjects.OrderItem productId, decimal price, int quantity)
 		{
 			Id = OrderItemId.Of(Guid.NewGuid());
 			OrderId = orderId;

@@ -9,7 +9,7 @@
         public DbSet<Customer> Customers => Set<Customer>();
         public DbSet<Product> Products => Set<Product>();
         public DbSet<Order> Orders => Set<Order>();
-        public DbSet<OrderItem> OrderItems => Set<OrderItem>();
+        public DbSet<Domain.Models.OrderItem> OrderItems => Set<Domain.Models.OrderItem>();
 
 
         protected override void OnModelCreating(ModelBuilder builder)
