@@ -59,6 +59,34 @@ namespace Ordering.Infrastructure.Data.Configurations
             });
 
             builder.ComplexProperty(
+             o => o.BillingAddress, addressBuilder =>
+             {
+                 addressBuilder.Property(a => a.LastName)
+                    .HasMaxLength(50)
+                    .IsRequired();
+
+                 addressBuilder.Property(a => a.FirstName)
+                    .HasMaxLength(50)
+                    .IsRequired();
+
+                 addressBuilder.Property(a => a.EmailAdress)
+                    .HasMaxLength(50);
+
+                 addressBuilder.Property(a => a.AddressLine)
+                    .HasMaxLength(100)
+                    .IsRequired();
+
+                 addressBuilder.Property(a => a.Country)
+                    .HasMaxLength(50);
+
+                 addressBuilder.Property(a => a.State)
+                    .HasMaxLength(50);
+
+                 addressBuilder.Property(a => a.ZipCode)
+                   .HasMaxLength(50);
+             });
+
+            builder.ComplexProperty(
 
                 p => p.Payment, paymentBuilder =>
                 {
