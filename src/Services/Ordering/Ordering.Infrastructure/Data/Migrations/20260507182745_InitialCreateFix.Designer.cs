@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Ordering.Infrastructure.Data;
 
@@ -12,9 +13,11 @@ using Ordering.Infrastructure.Data;
 namespace Ordering.Infrastructure.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260507182745_InitialCreateFix")]
+    partial class InitialCreateFix
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -36,8 +39,8 @@ namespace Ordering.Infrastructure.Data.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasMaxLength(255)
-                        .HasColumnType("nvarchar(255)");
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<DateTime?>("LastModified")
                         .HasColumnType("datetime2");
@@ -93,15 +96,15 @@ namespace Ordering.Infrastructure.Data.Migrations
 
                             b1.Property<string>("AddressLine")
                                 .IsRequired()
-                                .HasMaxLength(180)
-                                .HasColumnType("nvarchar(180)");
+                                .HasMaxLength(100)
+                                .HasColumnType("nvarchar(100)");
 
                             b1.Property<string>("Country")
                                 .IsRequired()
                                 .HasMaxLength(50)
                                 .HasColumnType("nvarchar(50)");
 
-                            b1.Property<string>("EmailAddress")
+                            b1.Property<string>("EmailAdress")
                                 .HasMaxLength(50)
                                 .HasColumnType("nvarchar(50)");
 
@@ -122,8 +125,8 @@ namespace Ordering.Infrastructure.Data.Migrations
 
                             b1.Property<string>("ZipCode")
                                 .IsRequired()
-                                .HasMaxLength(5)
-                                .HasColumnType("nvarchar(5)");
+                                .HasMaxLength(50)
+                                .HasColumnType("nvarchar(50)");
                         });
 
                     b.ComplexProperty<Dictionary<string, object>>("OrderName", "Ordering.Domain.Models.Order.OrderName#OrderName", b1 =>
@@ -143,8 +146,8 @@ namespace Ordering.Infrastructure.Data.Migrations
 
                             b1.Property<string>("CVV")
                                 .IsRequired()
-                                .HasMaxLength(3)
-                                .HasColumnType("nvarchar(3)");
+                                .HasMaxLength(4)
+                                .HasColumnType("nvarchar(4)");
 
                             b1.Property<string>("CardName")
                                 .HasMaxLength(50)
@@ -170,15 +173,15 @@ namespace Ordering.Infrastructure.Data.Migrations
 
                             b1.Property<string>("AddressLine")
                                 .IsRequired()
-                                .HasMaxLength(180)
-                                .HasColumnType("nvarchar(180)");
+                                .HasMaxLength(100)
+                                .HasColumnType("nvarchar(100)");
 
                             b1.Property<string>("Country")
                                 .IsRequired()
                                 .HasMaxLength(50)
                                 .HasColumnType("nvarchar(50)");
 
-                            b1.Property<string>("EmailAddress")
+                            b1.Property<string>("EmailAdress")
                                 .HasMaxLength(50)
                                 .HasColumnType("nvarchar(50)");
 
@@ -199,8 +202,8 @@ namespace Ordering.Infrastructure.Data.Migrations
 
                             b1.Property<string>("ZipCode")
                                 .IsRequired()
-                                .HasMaxLength(5)
-                                .HasColumnType("nvarchar(5)");
+                                .HasMaxLength(50)
+                                .HasColumnType("nvarchar(50)");
                         });
 
                     b.HasKey("Id");
